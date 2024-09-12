@@ -1,4 +1,4 @@
-package com.learning.com.learning.utils;
+package com.learning.Utils;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
