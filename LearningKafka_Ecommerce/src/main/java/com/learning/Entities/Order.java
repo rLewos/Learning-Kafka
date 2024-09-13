@@ -12,4 +12,16 @@ public class Order {
         this.name = name;
         this.value = value;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public BigDecimal getValue() {
+        return value;
+    }
+
+    public String getId() {
+        return id;
+    }
 }
