@@ -5,10 +5,18 @@
   <groupId>com.learning</groupId>
   <artifactId>LearningKafka_Ecommerce</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Archetype - LearningKafka_Ecommerce</name>
+    <packaging>pom</packaging>
+    <name>Archetype - LearningKafka_Ecommerce</name>
   <url>http://maven.apache.org</url>
+    <modules>
+      <module>service-email-v2</module>
+      <module>service-log</module>
+      <module>service-fraud-detection</module>
+      <module>service-new-order</module>
+      <module>commons-kafka</module>
+    </modules>
 
-  <dependencies>
+    <dependencies>
     <!-- https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients -->
     <dependency>
       <groupId>org.apache.kafka</groupId>
