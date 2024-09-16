@@ -1,4 +1,4 @@
-package com.learning.Entities;
+package com.learning;
 
 public class Email {
 

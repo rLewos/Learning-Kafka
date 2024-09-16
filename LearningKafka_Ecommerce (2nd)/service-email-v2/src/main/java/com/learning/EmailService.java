@@ -1,8 +1,5 @@
-package com.learning.Consumers;
+package com.learning;
 
-import com.learning.Entities.Email;
-import com.learning.GsonDeserializer;
-import com.learning.KafkaService;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 
 public class EmailService {

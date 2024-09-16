@@ -1,8 +1,4 @@
-package com.learning.Producers;
-
-import com.learning.Entities.Email;
-import com.learning.Entities.Order;
-import com.learning.KafkaDispacher;
+package com.learning;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -18,12 +14,20 @@ public class NewOrderMain{
 
                 for (int i = 0; i < 3; i++) {
                     String keyMessage = UUID.randomUUID().toString();
-                    //String message = "123,456,78999";
 
                     String messageEmailKey = UUID.randomUUID().toString();
-                    //String messageEmail = "(" + i + ")" + "Thanks!";
+
                     Email email = new Email("(" + i + ")" + " BananaPhone Order", "Thanks");
-                    Order order = new Order(UUID.randomUUID().toString(), "(" + i + ")" + " Banana", BigDecimal.valueOf(1));
+
+                    String orderKey = UUID.randomUUID().toString();
+                    String orderName = "(" + i + ")" + " Banana";
+                    BigDecimal orderValue = new BigDecimal(Math.random() * 5000 + 1);
+
+                    Order order = new Order(
+                            orderKey
+                            , orderName
+                            , orderValue
+                    );
 
                     dispacherOrder.send(queueName, keyMessage, order);
                     dispacherEmail.send(queueNameEmail, messageEmailKey, email);

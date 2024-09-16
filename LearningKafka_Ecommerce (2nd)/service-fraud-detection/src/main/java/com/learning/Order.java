@@ -1,4 +1,4 @@
-package com.learning.Entities;
+package com.learning;
 
 import java.math.BigDecimal;
 
@@ -23,5 +23,14 @@ public class Order {
 
     public String getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", value=" + value +
+                '}';
     }
 }

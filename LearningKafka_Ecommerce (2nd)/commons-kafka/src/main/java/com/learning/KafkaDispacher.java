@@ -37,7 +37,7 @@ public class KafkaDispacher<T> implements Closeable {
                 return;
             }
 
-            System.out.println("Topic that message was sent: " + success.topic());
+            System.out.println("Topic that message has been sent: " + success.topic());
         };
 
         producer.send(record, cb).get();
