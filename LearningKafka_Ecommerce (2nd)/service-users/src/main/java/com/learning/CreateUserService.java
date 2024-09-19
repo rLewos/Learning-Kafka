@@ -5,6 +5,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecord;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.UUID;
 
 public class CreateUserService {
     private final Connection connection;
@@ -14,12 +15,15 @@ public class CreateUserService {
         this.connection = DriverManager.getConnection(url);
 
         // create user table
-        this.connection.createStatement().execute("create table tb_user(" +
-                "uuid_user varchar(200) primary key," +
-                "eml_user varchar(200) null" +
-                ")");
+        try {
+            this.connection.createStatement().execute("create table tb_user(" +
+                    "uuid_user varchar(200) primary key," +
+                    "eml_user varchar(200) null" +
+                    ")");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
-
 
     public static void main(String[] args) throws SQLException {
 
@@ -58,9 +62,10 @@ public class CreateUserService {
 
     private void insertNewUser(String email) throws SQLException {
         var insert = connection.prepareStatement("insert into tb_user values(?, ?)");
-        insert.setString(1, "uuid_user");
+        insert.setString(1, UUID.randomUUID().toString());
         insert.setString(2, email);
         insert.execute();
+
         System.out.println("User has been added: " + email);
     }
 

@@ -3,14 +3,16 @@ package com.learning;
 import java.math.BigDecimal;
 
 public class Order {
-    private final String id;
+    private final String orderId;
     private final String name;
     private final BigDecimal value;
+    private final String email;
 
-    public Order(String id, String name, BigDecimal value){
-        this.id = id;
+    public Order(String orderId, String name, BigDecimal value, String email){
+        this.orderId = orderId;
         this.name = name;
         this.value = value;
+        this.email = email;
     }
 
     public String getName() {
@@ -21,16 +23,21 @@ public class Order {
         return value;
     }
 
-    public String getId() {
-        return id;
+    public String getOrderId() {
+        return orderId;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     @Override
     public String toString() {
         return "Order{" +
-                "id='" + id + '\'' +
+                "orderId='" + orderId + '\'' +
                 ", name='" + name + '\'' +
                 ", value=" + value +
+                ", email='" + email + '\'' +
                 '}';
     }
 }

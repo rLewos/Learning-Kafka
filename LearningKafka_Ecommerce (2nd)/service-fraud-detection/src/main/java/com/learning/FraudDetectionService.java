@@ -40,7 +40,7 @@ public class FraudDetectionService {
                 System.out.println("Fraud has been detected! | " + order.toString());
 
                 try {
-                    kafkaDispacher.send("ECOMMERCE_NEW_ORDER_REJECTED", order.getId(), order);
+                    kafkaDispacher.send("ECOMMERCE_NEW_ORDER_REJECTED", order.getEmail(), order);
                 } catch (ExecutionException e) {
                     throw new RuntimeException(e);
                 }
@@ -48,7 +48,7 @@ public class FraudDetectionService {
             }else{
 
                 try {
-                    kafkaDispacher.send("ECOMMERCE_NEW_ORDER_ACCEPTED", order.getId(), order);
+                    kafkaDispacher.send("ECOMMERCE_NEW_ORDER_ACCEPTED", order.getEmail(), order);
                 } catch (ExecutionException e) {
                     throw new RuntimeException(e);
                 }

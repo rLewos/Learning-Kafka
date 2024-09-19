@@ -18,14 +18,11 @@ public class NewOrderMain{
                     String messageEmailKey = UUID.randomUUID().toString();
                     Email email = new Email("(" + i + ")" + " BananaPhone Order", "Thanks");
 
-                    String orderKey = UUID.randomUUID().toString();
-                    String orderName = "(" + i + ")" + " Banana";
+                    String orderId = UUID.randomUUID().toString();
                     BigDecimal orderValue = new BigDecimal(Math.random() * 5000 + 1);
-                    Order order = new Order(
-                            orderKey
-                            , orderName
-                            , orderValue
-                    );
+                    String orderUserEmail = Math.random() + "@email.com";
+
+                    Order order = new Order(orderId, orderValue, orderUserEmail);
 
                     dispacherOrder.send(queueName, keyMessage, order);
                     dispacherEmail.send(queueNameEmail, messageEmailKey, email);
