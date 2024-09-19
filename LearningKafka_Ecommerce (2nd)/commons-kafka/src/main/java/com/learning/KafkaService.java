@@ -5,6 +5,7 @@ import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
 import java.io.Closeable;
+import java.sql.SQLException;
 import java.time.Duration;
 import java.util.Collections;
 import java.util.Properties;
@@ -38,13 +39,17 @@ public class KafkaService<T> implements Closeable {
         this.consumer = new KafkaConsumer<String, T>(properties(groupId));
     }
 
-    public void run(){
+    public void run() {
         System.out.println(groupId + " consumer is running.");
 
         while(true){
             var records = consumer.poll(Duration.ofMillis(100));
             for (var rec : records){
-                parse.consume(rec);
+                try {
+                    parse.consume(rec);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

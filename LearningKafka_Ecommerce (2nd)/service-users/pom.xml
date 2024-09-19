@@ -18,5 +18,10 @@
             <version>3.46.1.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.learning</groupId>
+            <artifactId>commons-kafka</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 </project>

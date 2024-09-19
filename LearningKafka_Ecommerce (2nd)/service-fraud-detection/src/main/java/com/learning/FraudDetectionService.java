@@ -11,6 +11,7 @@ public class FraudDetectionService {
         var fraudObj = new FraudDetectionService();
         String groupId = FraudDetectionService.class.getName();
         String topicName = "ECOMMERCE_NEW_ORDER";
+
         try(var service = new KafkaService<Order>(
                 groupId
                 , topicName

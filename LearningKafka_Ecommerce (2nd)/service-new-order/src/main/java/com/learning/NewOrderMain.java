@@ -13,16 +13,14 @@ public class NewOrderMain{
                 String queueNameEmail = "ECOMMERCE_SEND_EMAIL";
 
                 for (int i = 0; i < 3; i++) {
+
                     String keyMessage = UUID.randomUUID().toString();
-
                     String messageEmailKey = UUID.randomUUID().toString();
-
                     Email email = new Email("(" + i + ")" + " BananaPhone Order", "Thanks");
 
                     String orderKey = UUID.randomUUID().toString();
                     String orderName = "(" + i + ")" + " Banana";
                     BigDecimal orderValue = new BigDecimal(Math.random() * 5000 + 1);
-
                     Order order = new Order(
                             orderKey
                             , orderName
