@@ -51,6 +51,8 @@ public class CreateUserService {
 
         if (isNewUser(order.getEmail())){
             insertNewUser(order.getEmail());
+        }else{
+            System.out.println("This user already exists");
         }
     }
 
@@ -63,7 +65,7 @@ public class CreateUserService {
     }
 
     private boolean isNewUser(String orderEmail) throws SQLException {
-        var select = this.connection.prepareStatement("select * from tb_users where eml_user = ? limit 1");
+        var select = this.connection.prepareStatement("select * from tb_user where eml_user = ? limit 1");
         select.setString(1, orderEmail);
         var emailExists = select.executeQuery();
 
