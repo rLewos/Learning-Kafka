@@ -10,4 +10,8 @@ public class User {
     public String getId() {
         return id;
     }
+
+    public String getReportPath() {
+        return "target/reports/"+ this.getId() + "-report.txt";
+    }
 }
