@@ -24,6 +24,7 @@ public class NewOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        System.out.println("Creating a new order...");
         String queueName = "ECOMMERCE_NEW_ORDER";
         String queueNameEmail = "ECOMMERCE_SEND_EMAIL";
 

@@ -24,6 +24,7 @@ public class KafkaDispacher<T> implements Closeable {
         p.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
         p.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         p.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, GsonSerializer.class.getName());
+        p.setProperty(ProducerConfig.ACKS_CONFIG, "all"); // 0, 1(leader) and all(full-cluster-sync)
 
         return p;
     }

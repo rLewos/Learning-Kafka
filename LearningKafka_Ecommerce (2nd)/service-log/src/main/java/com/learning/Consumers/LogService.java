@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class LogService {
     public static void main(String[] args) {
 
-        var logService = new LogService();
+        LogService logService = new LogService();
         Pattern topicName = Pattern.compile("ECOMMERCE.*");
 
         try(var service = new KafkaService(
